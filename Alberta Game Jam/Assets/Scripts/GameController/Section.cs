@@ -1,8 +1,21 @@
 ﻿using UnityEngine;
 
-public abstract class Section : MonoBehaviour, IPanelSection
+public abstract class Section : MonoBehaviour
 {
-    public EventController EventController => throw new System.NotImplementedException();
+    public delegate bool Event(out bool success);
 
-    public IPanelSection.Event[] Events => throw new System.NotImplementedException();
+    [field:SerializeField]
+    public EventController EventController { get; private set; }
+    public Event[] Events { get; set; }
+
+    public void ChooseRandomEvent(EventController.Callback callback)
+    {
+        var randomEvent = Events.SelectRandomElement();
+        randomEvent(out var success);
+
+        string msg = success
+            ? $"Event {randomEvent.Method.Name} was triggered"
+            : $"Event {randomEvent.Method.Name} failed to trigger.";
+        callback(success, msg);
+    }
 }

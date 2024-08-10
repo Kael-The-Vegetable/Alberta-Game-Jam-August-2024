@@ -1,17 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class EventController : MonoBehaviour
 {
     [Min(0)] public float timeBetweenEvents;
-    public bool eventWasTriggered;
+    public bool? eventWasTriggered;
 
     /// <summary>
     /// Lets <see cref="EventController"/> know that the event was started.
     /// </summary>
     /// <param name="eventName">The name of the event.</param>
-    public delegate void Callback(string eventName);
+    public delegate void Callback(bool success, string message);
 
     public Callback callback;
 
@@ -20,19 +20,43 @@ public class EventController : MonoBehaviour
 
     private void Awake()
     {
-        callback = (n) =>
+        callback = (b, m) =>
         {
-            eventWasTriggered = true;
-            Debug.Log($"Event {n} was triggered.");
+            eventWasTriggered = b;
+
+            if (b)
+            {
+                Debug.Log(m);
+            }
+            else
+            {
+                Debug.LogWarning(m);
+            }
         };
 
         sections ??= FindObjectsOfType<Section>();
     }
 
-    private IEnumerator Wait(float seconds)
+    public void StartEventCycle()
     {
-        eventWasTriggered = false;
-        yield return new WaitForSeconds(seconds);
+        StartCoroutine(EventCycle(timeBetweenEvents));
+    }
 
+    private IEnumerator EventCycle(float seconds)
+    {
+        eventWasTriggered = null;
+        yield return new WaitForSeconds(seconds);
+        var section = sections.SelectRandomElement();
+        section.ChooseRandomEvent(callback);
+
+        if (!(bool)eventWasTriggered)
+        {
+            // Continue the cycle
+            StartCoroutine(EventCycle(seconds));
+        }
+        else
+        {
+            // Stop the cycle
+        }
     }
 }
