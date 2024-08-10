@@ -78,7 +78,7 @@ MonoBehaviour:
       Data2: 1168989779
       Data3: 1547400847
       Data4: -333375208
-    Path: event:/Music/game_music_01
+    Path: event:/Music/game_music
   <overMusic>k__BackingField:
     Guid:
       Data1: -905016890
