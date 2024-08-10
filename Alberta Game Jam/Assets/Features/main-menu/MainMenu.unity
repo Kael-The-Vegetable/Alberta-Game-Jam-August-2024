@@ -1952,6 +1952,7 @@ MonoBehaviour:
   - {fileID: 1001394936}
   - {fileID: 997656979}
   eventSystem: {fileID: 109989004}
+  introWaitTime: 1.5
   settingsCanvas: {fileID: 1819089927}
 --- !u!114 &1241633405
 MonoBehaviour:
@@ -2541,6 +2542,7 @@ MonoBehaviour:
   - {fileID: 1083328176}
   - {fileID: 589824342}
   eventSystem: {fileID: 109989004}
+  introWaitTime: 1.5
   settingsCanvas: {fileID: 1241633403}
 --- !u!1 &2086545425
 GameObject:

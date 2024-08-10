@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public abstract class MenuController : MonoBehaviour
     protected int _selectedIndex = 0;
 
     public EventSystem eventSystem;
+    [Space]
+    public float introWaitTime;
 
     internal virtual void Awake()
     {
@@ -29,6 +32,7 @@ public abstract class MenuController : MonoBehaviour
 
     internal virtual void OnEnable()
     {
+        Move(introWaitTime, Vector2.zero);
         eventSystem.SetSelectedGameObject(_buttonObjects[_selectedIndex]);
     }
 
@@ -41,12 +45,17 @@ public abstract class MenuController : MonoBehaviour
         }
     }
 
-    public virtual void Outro(float waitTime, GameObject newActiveObj)
+    public virtual void Move(float waitTime, Vector2 newPos)
     {
-        StartCoroutine(OutroWait(waitTime, newActiveObj));
+        gameObject.transform.DOMove(newPos, waitTime);
     }
-    internal virtual IEnumerator OutroWait(float waitTime, GameObject newActiveObj)
+    public virtual void Outro(float waitTime, GameObject newActiveObj, Vector2 newPos)
     {
+        StartCoroutine(OutroWait(waitTime, newActiveObj, newPos));
+    }
+    internal virtual IEnumerator OutroWait(float waitTime, GameObject newActiveObj, Vector2 newPos)
+    {
+        Move(waitTime, newPos);
         yield return new WaitForSeconds(waitTime);
         gameObject.SetActive(false);
         newActiveObj.SetActive(true);
