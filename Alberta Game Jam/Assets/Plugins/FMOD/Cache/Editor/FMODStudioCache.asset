@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Menu.bank
   Name: Desktop/Menu
   StudioPath: bank:/Menu
-  lastModified: 638588819630132842
+  lastModified: 638588921428749649
   FileSizes: []
   Exists: 1
 --- !u!114 &-4143386667726109155
@@ -160,7 +160,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638588385688953815
+  lastModified: 638588921428313874
   FileSizes: []
   Exists: 1
 --- !u!114 &-3076698546588878874
@@ -223,7 +223,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Game.bank
   Name: Desktop/Game
   StudioPath: bank:/Game
-  lastModified: 638588819629969583
+  lastModified: 638588921428605014
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -246,17 +246,21 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -6907557366587115380}
   - {fileID: -8165983858462778484}
-  - {fileID: 6555663874445506543}
   - {fileID: 3536214423037134709}
   - {fileID: 9149946439657109559}
   - {fileID: 669811398138375915}
   - {fileID: -4143386667726109155}
-  EditorParameters: []
+  - {fileID: 2823889240818418473}
+  EditorParameters:
+  - {fileID: 894258683095168121}
+  - {fileID: 6875520013492570934}
+  - {fileID: 7159510884654412827}
+  - {fileID: 1031815326536665454}
   MasterBanks:
   - {fileID: -3792553509015569560}
   StringsBanks:
   - {fileID: 2973175430522281729}
-  cacheTime: 638588819630132842
+  cacheTime: 638588921428749649
   cacheVersion: 131618
 --- !u!114 &669811398138375915
 MonoBehaviour:
@@ -286,6 +290,81 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &894258683095168121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/dialogue_bus_vol
+  m_EditorClassIdentifier: 
+  Name: dialogue_bus_vol
+  StudioPath: parameter:/Bus Volume/dialogue_bus_vol
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 1104370942
+    data2: 1862740126
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &1031815326536665454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/music_bus_vol
+  m_EditorClassIdentifier: 
+  Name: music_bus_vol
+  StudioPath: parameter:/Bus Volume/music_bus_vol
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 2700973518
+    data2: 3376720860
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &2823889240818418473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/game_music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/game_music
+  Guid:
+    Data1: -1845220045
+    Data2: 1168989779
+    Data3: 1547400847
+    Data4: -333375208
+  Banks:
+  - {fileID: -601337601535783396}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2973175430522281729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,10 +380,10 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638588819630072287
+  lastModified: 638588921428364122
   FileSizes:
   - Name: 
-    Value: 1208
+    Value: 1536
   Exists: 1
 --- !u!114 &3317958964058819331
 MonoBehaviour:
@@ -415,6 +494,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6875520013492570934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/sfx_bus_vol
+  m_EditorClassIdentifier: 
+  Name: sfx_bus_vol
+  StudioPath: parameter:/Bus Volume/sfx_bus_vol
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 2564428505
+    data2: 2607113946
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &7082999993958765717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +537,30 @@ MonoBehaviour:
   FileSizes:
   - Name: 
     Value: 1208
+  Exists: 1
+--- !u!114 &7159510884654412827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/master_bus_vol
+  m_EditorClassIdentifier: 
+  Name: master_bus_vol
+  StudioPath: parameter:/Bus Volume/master_bus_vol
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 970737642
+    data2: 2460364993
+  Type: 0
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &8645336070902699252
 MonoBehaviour:

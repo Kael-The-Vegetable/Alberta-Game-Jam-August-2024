@@ -182,9 +182,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: 1
+  _masterParameter: master_bus_vol
   sfxVolume: 1
+  _sfxParameter: 
   musicVolume: 1
-  dialogueVolume: 0.965
+  _musicParameter: 
+  dialogueVolume: 1
+  _dialogueParameter: 
 --- !u!1 &9055904280418378096
 GameObject:
   m_ObjectHideFlags: 0
