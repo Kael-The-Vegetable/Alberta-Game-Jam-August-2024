@@ -37,7 +37,7 @@ public class EventController : MonoBehaviour
         Sections ??= FindObjectsOfType<Section>();
 
         //TODO: remove later
-        StartEventCycle();
+        //StartEventCycle();
     }
 
     public void StartEventCycle()
@@ -53,7 +53,9 @@ public class EventController : MonoBehaviour
         eventWasTriggered = null;
         yield return new WaitForSeconds(seconds);
         var section = Sections.Where(s => s.enabled && !s.IsEventRunning).ToArray().SelectRandomElement();
-        section.ChooseRandomEvent(callback);
+        if (section != null)
+        { section.ChooseRandomEvent(callback); }
+        
 
         if ((bool)eventWasTriggered)
         {
