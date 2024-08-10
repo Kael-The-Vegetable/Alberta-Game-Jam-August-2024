@@ -45,7 +45,7 @@ public class Section : MonoBehaviour
         Events = GetComponentsInChildren<GameEventTrigger>();
     }
 
-    private void OnValidate()
+    public void OnValidate()
     {
         Events = GetComponentsInChildren<GameEventTrigger>();
         for (int i = 0; i < Events.Length; i++)

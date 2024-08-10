@@ -12,9 +12,10 @@ public class GameEventTrigger : MonoBehaviour
     [field: SerializeField, TextArea]
     public string EventDescription { get; set; }
 
-    [Space]
+    [HideInInspector]
     public bool isRunning;
 
+    [Space]
     public UnityEvent onEventStart;
     public UnityEvent onEventUpdate;
     public UnityEvent onEventEnd;
@@ -34,5 +35,13 @@ public class GameEventTrigger : MonoBehaviour
     {
         section.runningEvent = null;
         onEventEnd?.Invoke();
+    }
+
+    private void OnValidate()
+    {
+        if (section != null)
+        {
+            section.OnValidate();
+        }
     }
 }
