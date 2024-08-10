@@ -8,6 +8,7 @@ public class Singleton : MonoBehaviour
 
     public GameManager GameManager { get; private set; }
     public FModManager FModManager { get; private set; }
+    public System.Random Random { get; private set; } = new System.Random();
 
     private void Awake()
     {
