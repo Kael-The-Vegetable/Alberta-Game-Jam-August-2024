@@ -33,6 +33,7 @@ public abstract class MenuController : MonoBehaviour
     internal virtual void OnEnable()
     {
         Move(introWaitTime, Vector2.zero);
+        StartCoroutine(Initialize(introWaitTime));
         eventSystem.SetSelectedGameObject(_buttonObjects[_selectedIndex]);
     }
 
@@ -45,14 +46,25 @@ public abstract class MenuController : MonoBehaviour
         }
     }
 
-    public virtual void Move(float waitTime, Vector2 newPos)
+    protected IEnumerator Initialize(float waitTime)
     {
-        gameObject.transform.DOMove(newPos, waitTime);
+        DisableButtons(true);
+        yield return new WaitForSeconds(waitTime);
+        DisableButtons(false);
     }
-    public virtual void Outro(float waitTime, GameObject newActiveObj, Vector2 newPos)
+
+    private void DisableButtons(bool disable)
     {
-        StartCoroutine(OutroWait(waitTime, newActiveObj, newPos));
+        for (int i = 0; i < _buttons.Length; i++)
+        { _buttons[i].enabled = !disable; }
     }
+
+    public virtual void Move(float waitTime, Vector2 newPos) 
+        => gameObject.transform.DOMove(newPos, waitTime);
+    
+    public virtual void Outro(float waitTime, GameObject newActiveObj, Vector2 newPos) 
+        => StartCoroutine(OutroWait(waitTime, newActiveObj, newPos));
+    
     internal virtual IEnumerator OutroWait(float waitTime, GameObject newActiveObj, Vector2 newPos)
     {
         Move(waitTime, newPos);
