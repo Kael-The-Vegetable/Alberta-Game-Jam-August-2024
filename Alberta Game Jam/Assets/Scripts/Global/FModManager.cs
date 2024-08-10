@@ -7,6 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class FModManager : MonoBehaviour
 {
+    [Header("Volume")]
+    [Range(0, 1)] public float masterVolume = 1;
+    private Bus _masterBus;
+
+    [Range(0, 1)] public float sfxVolume = 1;
+    private Bus _sfxBus;
+
+    [Range(0, 1)] public float musicVolume = 1;
+    private Bus _musicBus;
+
+    [Range(0, 1)] public float dialogueVolume = 1;
+    private Bus _dialogueBus;
+
     private List<EventInstance> currentEvents;
     private List<StudioEventEmitter> eventEmitters;
 
@@ -16,6 +29,9 @@ public class FModManager : MonoBehaviour
         eventEmitters = new List<StudioEventEmitter>();
 
         SceneManager.activeSceneChanged += SceneChanged;
+
+        //***** HOOK UP BUSSES *****
+        _masterBus = RuntimeManager.GetBus("bus:/");
     }
 
     public void PlayOneShot(EventReference sound, Vector3 pos)
