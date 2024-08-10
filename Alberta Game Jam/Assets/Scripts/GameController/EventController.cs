@@ -16,8 +16,7 @@ public class EventController : MonoBehaviour
 
     public Callback callback;
 
-    [NonReorderable]
-    public Section[] sections;
+    public Section[] Sections { get; set; }
 
     private void Awake()
     {
@@ -35,7 +34,7 @@ public class EventController : MonoBehaviour
             }
         };
 
-        sections ??= FindObjectsOfType<Section>();
+        Sections ??= FindObjectsOfType<Section>();
 
         //TODO: remove later
         StartEventCycle();
@@ -50,7 +49,7 @@ public class EventController : MonoBehaviour
     {
         eventWasTriggered = null;
         yield return new WaitForSeconds(seconds);
-        var section = sections.Where(s => !s.IsEventRunning).ToArray().SelectRandomElement();
+        var section = Sections.Where(s => s.enabled && !s.IsEventRunning).ToArray().SelectRandomElement();
         section.ChooseRandomEvent(callback);
 
         if ((bool)eventWasTriggered)
