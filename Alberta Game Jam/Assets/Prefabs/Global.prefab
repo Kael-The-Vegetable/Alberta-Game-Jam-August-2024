@@ -78,7 +78,7 @@ MonoBehaviour:
       Data2: 1168989779
       Data3: 1547400847
       Data4: -333375208
-    Path: event:/Music/game_music_01
+    Path: event:/Music/game_music
   <overMusic>k__BackingField:
     Guid:
       Data1: -905016890
@@ -181,14 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2451270f5304c3458d66970fdcce4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 1
-  _masterParameter: master_bus_vol
-  sfxVolume: 1
-  _sfxParameter: 
-  musicVolume: 1
-  _musicParameter: 
-  dialogueVolume: 1
-  _dialogueParameter: 
 --- !u!1 &9055904280418378096
 GameObject:
   m_ObjectHideFlags: 0
