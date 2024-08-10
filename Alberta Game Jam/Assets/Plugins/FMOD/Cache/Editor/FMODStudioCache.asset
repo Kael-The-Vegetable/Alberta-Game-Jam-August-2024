@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Menu.bank
   Name: Desktop/Menu
   StudioPath: bank:/Menu
-  lastModified: 638588918737793466
+  lastModified: 638588921428749649
   FileSizes: []
   Exists: 1
 --- !u!114 &-4143386667726109155
@@ -160,7 +160,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638588918737783449
+  lastModified: 638588921428313874
   FileSizes: []
   Exists: 1
 --- !u!114 &-3076698546588878874
@@ -223,7 +223,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Game.bank
   Name: Desktop/Game
   StudioPath: bank:/Game
-  lastModified: 638588918737772596
+  lastModified: 638588921428605014
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -260,7 +260,7 @@ MonoBehaviour:
   - {fileID: -3792553509015569560}
   StringsBanks:
   - {fileID: 2973175430522281729}
-  cacheTime: 638588918737793466
+  cacheTime: 638588921428749649
   cacheVersion: 131618
 --- !u!114 &669811398138375915
 MonoBehaviour:
@@ -380,7 +380,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638588918737783449
+  lastModified: 638588921428364122
   FileSizes:
   - Name: 
     Value: 1536
