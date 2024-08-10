@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class EventController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Min(0)] public float timeBetweenEvents;
+    public bool eventWasTriggered;
 
-    // Update is called once per frame
-    void Update()
+
+}
+
+public interface IPanelSection
+{
+    public delegate void Callback();
+    public delegate void Event(Callback callback);
+
+    public EventController EventController { get; }
+    public Event[] Events { get; }
+
+    public void ChooseRandomEvent(Callback callback)
     {
-        
+        Events.SelectRandomElement()(callback);
     }
 }
