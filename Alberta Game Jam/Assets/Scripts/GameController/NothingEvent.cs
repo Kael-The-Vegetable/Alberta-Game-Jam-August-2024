@@ -21,5 +21,6 @@ public class NothingEvent : MonoBehaviour, IGameEvent
     public void OnEventUpdate()
     {
         Debug.Log("Doing nothing on update");
+        Trigger.EndEvent();
     }
 }
