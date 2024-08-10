@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TextPrinter : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class TextPrinter : MonoBehaviour
     [TextArea]
     string text;
 
+    public UnityEvent onStartPrint;
+    public UnityEvent onFinishPrint;
     private void Awake()
     {
         // cache the labels text.
@@ -22,6 +25,7 @@ public class TextPrinter : MonoBehaviour
 
     public void BeginPrint()
     {
+        onStartPrint?.Invoke();
         StartCoroutine(ShowLetters(1 / charactersPerSecond));
     }
 
@@ -33,5 +37,6 @@ public class TextPrinter : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
         yield return new WaitForSeconds(10 * delay);
+        onFinishPrint?.Invoke();
     }
 }
