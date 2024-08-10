@@ -8,6 +8,7 @@ public abstract class MenuController : MonoBehaviour
 {
     [SerializeField] protected GameObject[] _buttonObjects;
     protected Button[] _buttons;
+    protected int _selectedIndex = 0;
 
     public EventSystem eventSystem;
 
@@ -24,6 +25,20 @@ public abstract class MenuController : MonoBehaviour
         { eventSystem.SetSelectedGameObject(_buttonObjects[0]); }
         else
         { Debug.LogError("You require to have buttons exist and an eventSystem."); }
+    }
+
+    internal virtual void OnEnable()
+    {
+        eventSystem.SetSelectedGameObject(_buttonObjects[_selectedIndex]);
+    }
+
+    internal virtual void OnDisable()
+    {
+        for (int i = 0; i < _buttonObjects.Length; i++)
+        {
+            if (eventSystem.currentSelectedGameObject == _buttonObjects[i])
+            { _selectedIndex = i; }
+        }
     }
 
     public virtual void Outro(float waitTime, GameObject newActiveObj)
