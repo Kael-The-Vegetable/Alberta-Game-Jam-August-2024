@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -46,7 +47,7 @@ public class EventController : MonoBehaviour
     {
         eventWasTriggered = null;
         yield return new WaitForSeconds(seconds);
-        var section = sections.SelectRandomElement();
+        var section = sections.Where(s => !s.IsEventRunning).ToArray().SelectRandomElement();
         section.ChooseRandomEvent(callback);
 
         if (!(bool)eventWasTriggered)

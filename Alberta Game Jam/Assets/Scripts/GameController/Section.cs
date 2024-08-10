@@ -1,30 +1,67 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Section : MonoBehaviour
+public class Section : MonoBehaviour
 {
-    public delegate void Event(out bool success);
-
     [field: SerializeField]
     public EventController EventController { get; private set; }
-    protected virtual UnityAction[] Events { get; set; }
+    
+    public GameEventTrigger[] Events { get; set; }
+
+    [HideInInspector]
+    public GameEventTrigger runningEvent;
+    public bool IsEventRunning => runningEvent != null;
 
     public void ChooseRandomEvent(EventController.Callback callback)
     {
-        var randomEvent = Events.SelectRandomElement();
         string msg;
         bool success = false;
-        try
+        if (IsEventRunning)
         {
-            randomEvent.Invoke();
-            msg = $"Event {randomEvent.Method.Name} was triggered";
-            success = true;
+            msg = $"Event \"{runningEvent.EventName}\"";
+            callback(success, msg);
         }
-        catch (System.Exception)
+        else
         {
-            msg = $"Event {randomEvent.Method.Name} failed to trigger.";
-        }
+            var randomEvent = Events.SelectRandomElement();
+            try
+            {
+                runningEvent = randomEvent;
+                randomEvent.StartEvent();
+                msg = $"Event {randomEvent.EventName} has started";
+                success = true;
+            }
+            catch (System.Exception)
+            {
+                msg = $"Event {randomEvent.EventName} failed to start.";
+            }
 
-        callback(success, msg);
+            callback(success, msg);
+        }
+    }
+
+    private void Awake()
+    {
+        Events = GetComponentsInChildren<GameEventTrigger>();
+    }
+
+    private void OnValidate()
+    {
+        Events = GetComponentsInChildren<GameEventTrigger>();
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (string.IsNullOrWhiteSpace(Events[i].EventName))
+            {
+                throw new System.Exception($"Every event in a {typeof(Section)} must have a name.");
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (IsEventRunning)
+        {
+            runningEvent.UpdateEvent();
+        }
     }
 }
