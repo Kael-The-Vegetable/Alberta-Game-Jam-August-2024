@@ -8,10 +8,11 @@ public class Singleton : MonoBehaviour
 
     public GameManager GameManager { get; private set; }
     public FModManager FModManager { get; private set; }
+    public FModEvents FModEvents { get; private set; }
 
     private void Awake()
     {
-        if (Global == null && Global != this)
+        if (Global != null)
         {
             Destroy(this.gameObject);
         }
@@ -22,5 +23,6 @@ public class Singleton : MonoBehaviour
         }
         GameManager = GetComponentInChildren<GameManager>();
         FModManager = GetComponentInChildren<FModManager>();
+        FModEvents = GetComponentInChildren<FModEvents>();
     }
 }
