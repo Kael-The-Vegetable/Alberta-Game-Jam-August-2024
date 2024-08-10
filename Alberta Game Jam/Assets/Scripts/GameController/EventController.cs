@@ -53,7 +53,7 @@ public class EventController : MonoBehaviour
         var section = sections.Where(s => !s.IsEventRunning).ToArray().SelectRandomElement();
         section.ChooseRandomEvent(callback);
 
-        if (!(bool)eventWasTriggered)
+        if ((bool)eventWasTriggered)
         {
             // Continue the cycle
             StartCoroutine(EventCycle(seconds));
@@ -61,6 +61,7 @@ public class EventController : MonoBehaviour
         else
         {
             // Stop the cycle
+            Debug.Log("Stopping event cycle");
         }
     }
 }

@@ -27,8 +27,8 @@ public class Section : MonoBehaviour
             try
             {
                 runningEvent = randomEvent;
-                randomEvent.StartEvent();
                 msg = $"Event {randomEvent.EventName} has started";
+                randomEvent.StartEvent();
                 success = true;
             }
             catch (System.Exception)
