@@ -7,18 +7,50 @@ using UnityEngine.SceneManagement;
 
 public class FModManager : MonoBehaviour
 {
-    [Header("Volume")]
-    [Range(0, 1)] public float masterVolume = 1;
-    private Bus _masterBus;
+    
+    public float MasterVolume
+    {
+        get
+        {
+            RuntimeManager.StudioSystem.getParameterByName(_masterParameter, out float val);
+            return val;
+        }
+        set => RuntimeManager.StudioSystem.setParameterByName(_masterParameter, value);
+    }
+    private string _masterParameter = "master_bus_vol";
 
-    [Range(0, 1)] public float sfxVolume = 1;
-    private Bus _sfxBus;
+    public float SFXVolume
+    {
+        get
+        {
+            RuntimeManager.StudioSystem.getParameterByName(_sfxParameter, out float val);
+            return val;
+        }
+        set => RuntimeManager.StudioSystem.setParameterByName(_sfxParameter, value);
+    }
+    private string _sfxParameter = "sfx_bus_vol";
 
-    [Range(0, 1)] public float musicVolume = 1;
-    private Bus _musicBus;
+    public float MusicVolume
+    {
+        get
+        {
+            RuntimeManager.StudioSystem.getParameterByName(_musicParameter, out float val);
+            return val;
+        }
+        set => RuntimeManager.StudioSystem.setParameterByName(_musicParameter, value);
+    }
+    private string _musicParameter = "music_bus_vol";
 
-    [Range(0, 1)] public float dialogueVolume = 1;
-    private Bus _dialogueBus;
+    public float DialogueVolume
+    {
+        get
+        {
+            RuntimeManager.StudioSystem.getParameterByName(_dialogueParameter, out float val);
+            return val;
+        }
+        set => RuntimeManager.StudioSystem.setParameterByName(_dialogueParameter, value);
+    }
+    private string _dialogueParameter = "dialogue_bus_vol";
 
     private List<EventInstance> currentEvents;
     private List<StudioEventEmitter> eventEmitters;
@@ -30,8 +62,7 @@ public class FModManager : MonoBehaviour
 
         SceneManager.activeSceneChanged += SceneChanged;
 
-        //***** HOOK UP BUSSES *****
-        _masterBus = RuntimeManager.GetBus("bus:/");
+
     }
 
     public void PlayOneShot(EventReference sound, Vector3 pos)
