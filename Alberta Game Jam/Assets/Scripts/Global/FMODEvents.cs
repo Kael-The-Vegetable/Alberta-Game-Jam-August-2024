@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class FModEvents : MonoBehaviour
 {
@@ -17,4 +18,11 @@ public class FModEvents : MonoBehaviour
 
     [field: Header("Misc Events")]
     [field: SerializeField] public EventReference cigarettes { get; private set; }
+
+    //public EventInstance music;
+    //public void Start()
+    //{
+    //    music = Singleton.Global.FModManager.CreateInstance(menuMusic);
+    //    music.start();
+    //}
 }
