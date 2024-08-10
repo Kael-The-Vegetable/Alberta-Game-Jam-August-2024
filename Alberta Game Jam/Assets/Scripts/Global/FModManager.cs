@@ -7,17 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class FModManager : MonoBehaviour
 {
-    [field: Header("Volume")]
-    [field: Range(0, 1)] public float MasterVolume { get; set; }
+    [Header("Volume")]
+    [Range(0, 1)] public float masterVolume = 1;
     private Bus _masterBus;
 
-    [field: Range(0, 1)] public float SFXVolume { get; set; }
+    [Range(0, 1)] public float sfxVolume = 1;
     private Bus _sfxBus;
 
-    [field: Range(0, 1)] public float MusicVolume { get; set; }
+    [Range(0, 1)] public float musicVolume = 1;
     private Bus _musicBus;
 
-    [field: Range(0, 1)] public float dialogueVolume { get; set; }
+    [Range(0, 1)] public float dialogueVolume = 1;
     private Bus _dialogueBus;
 
     private List<EventInstance> currentEvents;
