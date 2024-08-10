@@ -53,7 +53,7 @@ public class Section : MonoBehaviour
         {
             if (string.IsNullOrWhiteSpace(Events[i].EventName))
             {
-                throw new System.Exception($"Every event in a {typeof(Section)} must have a name.");
+                Debug.LogWarning($"Every event in a {typeof(Section)} should have a name.");
             }
         }
     }
