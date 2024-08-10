@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +13,7 @@ public class TextPrinter : MonoBehaviour
 
     public UnityEvent onStartPrint;
     public UnityEvent onFinishPrint;
+
     private void Awake()
     {
         // cache the labels text.
