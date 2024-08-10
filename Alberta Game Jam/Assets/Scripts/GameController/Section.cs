@@ -43,6 +43,7 @@ public class Section : MonoBehaviour
     private void Awake()
     {
         Events = GetComponentsInChildren<GameEventTrigger>();
+        EventController = EventController != null ? EventController : Singleton.Global.EventController;
     }
 
     public void OnValidate()
