@@ -1926,7 +1926,7 @@ GameObject:
   - component: {fileID: 1241633407}
   - component: {fileID: 1241633406}
   - component: {fileID: 1241633405}
-  - component: {fileID: 1241633404}
+  - component: {fileID: 1241633409}
   m_Layer: 5
   m_Name: SettingCanvas
   m_TagString: Untagged
@@ -1934,26 +1934,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1241633404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241633403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba89f1c9091d2c649a5c8b143ac4dc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonObjects:
-  - {fileID: 941344939}
-  - {fileID: 2086545425}
-  - {fileID: 1001394936}
-  - {fileID: 997656979}
-  eventSystem: {fileID: 109989004}
-  introWaitTime: 1.5
-  settingsCanvas: {fileID: 1819089927}
 --- !u!114 &1241633405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,9 +2018,29 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 797, y: 448.4}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1241633409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241633403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da16dea80dd91824686f9ef1b10f6ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonObjects:
+  - {fileID: 941344939}
+  - {fileID: 1001394936}
+  - {fileID: 2086545425}
+  - {fileID: 997656979}
+  eventSystem: {fileID: 109989004}
+  introWaitTime: 2
+  mainCanvas: {fileID: 1819089927}
 --- !u!1 &1383565031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,7 +2521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: 797, y: 448.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819089932
@@ -2538,11 +2538,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonObjects:
   - {fileID: 1383565031}
-  - {fileID: 1724926326}
   - {fileID: 1083328176}
+  - {fileID: 1724926326}
   - {fileID: 589824342}
   eventSystem: {fileID: 109989004}
-  introWaitTime: 1.5
+  introWaitTime: 2
   settingsCanvas: {fileID: 1241633403}
 --- !u!1 &2086545425
 GameObject:
