@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class EventController : MonoBehaviour
 {
     [Min(0)] public float timeBetweenEvents;
+    [Min(0)] public float timeVariation;
     public bool? eventWasTriggered;
 
     /// <summary>
@@ -42,7 +42,10 @@ public class EventController : MonoBehaviour
 
     public void StartEventCycle()
     {
-        StartCoroutine(EventCycle(timeBetweenEvents));
+        float delay = Singleton.Global.Random.Next(2) == 0
+            ? timeBetweenEvents - (float)Singleton.Global.Random.NextDouble() * timeVariation
+            : timeBetweenEvents + (float)Singleton.Global.Random.NextDouble() * timeVariation;
+        StartCoroutine(EventCycle(delay));
     }
 
     private IEnumerator EventCycle(float seconds)
