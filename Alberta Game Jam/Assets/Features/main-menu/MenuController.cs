@@ -49,7 +49,7 @@ public abstract class MenuController : MonoBehaviour
     protected IEnumerator Initialize(float waitTime)
     {
         DisableButtons(true);
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSecondsRealtime(waitTime);
         DisableButtons(false);
     }
 
@@ -68,7 +68,7 @@ public abstract class MenuController : MonoBehaviour
     internal virtual IEnumerator OutroWait(float waitTime, GameObject newActiveObj, Vector2 newPos)
     {
         Move(waitTime, newPos);
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSecondsRealtime(waitTime);
         gameObject.SetActive(false);
         newActiveObj.SetActive(true);
     }
