@@ -2,10 +2,7 @@
 
 namespace Sections
 {
-    public class A10 : MonoBehaviour, IPanelSection
+    public class A10 : Section
     {
-        public EventController EventController { get; set; }
-
-        public IPanelSection.Event[] Events { get; set; }
     }
 }

@@ -3,10 +3,8 @@
 namespace Sections
 {
     // There is no A01
-    public class A02 : MonoBehaviour, IPanelSection
+    public class A02 : Section
     {
-        public EventController EventController { get; set; }
-
-        public IPanelSection.Event[] Events { get; set; }
+        
     }
 }

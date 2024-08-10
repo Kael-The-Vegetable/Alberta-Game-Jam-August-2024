@@ -7,19 +7,32 @@ public class EventController : MonoBehaviour
     [Min(0)] public float timeBetweenEvents;
     public bool eventWasTriggered;
 
+    /// <summary>
+    /// Lets <see cref="EventController"/> know that the event was started.
+    /// </summary>
+    /// <param name="eventName">The name of the event.</param>
+    public delegate void Callback(string eventName);
 
-}
+    public Callback callback;
 
-public interface IPanelSection
-{
-    public delegate void Callback();
-    public delegate void Event(Callback callback);
+    [NonReorderable]
+    public Section[] sections;
 
-    public EventController EventController { get; }
-    public Event[] Events { get; }
-
-    public void ChooseRandomEvent(Callback callback)
+    private void Awake()
     {
-        Events.SelectRandomElement()(callback);
+        callback = (n) =>
+        {
+            eventWasTriggered = true;
+            Debug.Log($"Event {n} was triggered.");
+        };
+
+        sections ??= FindObjectsOfType<Section>();
+    }
+
+    private IEnumerator Wait(float seconds)
+    {
+        eventWasTriggered = false;
+        yield return new WaitForSeconds(seconds);
+
     }
 }
