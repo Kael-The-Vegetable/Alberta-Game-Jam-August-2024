@@ -22,6 +22,7 @@ public abstract class MenuController : MonoBehaviour
         for (int i = 0; i < _buttonObjects.Length; i++)
         {
             _buttons[i] = _buttonObjects[i].GetComponent<Button>();
+            _buttons[i].onClick.AddListener(PressButton);
         }
 
         if (eventSystem != null && _buttonObjects.Length > 0)
@@ -71,5 +72,10 @@ public abstract class MenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(waitTime);
         gameObject.SetActive(false);
         newActiveObj.SetActive(true);
+    }
+
+    internal virtual void PressButton()
+    {
+        Singleton.Global.FModManager.PlayOneShot(Singleton.Global.FModEvents.uiClick, transform.position);
     }
 }
