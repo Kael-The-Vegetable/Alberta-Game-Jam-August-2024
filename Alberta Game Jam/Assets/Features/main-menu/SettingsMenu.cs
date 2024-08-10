@@ -10,6 +10,6 @@ public class SettingsMenu : MenuController
     {
         base.Awake();
 
-        _buttons[2].onClick.AddListener(() => Outro(2, mainCanvas, new Vector2(-20, 0))); // main canvas button
+        _buttons[0].onClick.AddListener(() => Outro(2, mainCanvas, new Vector2(-20, 0))); // main canvas button
     }
 }
