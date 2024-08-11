@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static ThreeColours;
@@ -38,10 +39,12 @@ public class EightSwitches : GameEventTrigger
     public GameObject[] switches;
     public float timePerSwitch = 2;
     private Toggle[] _switchToggles;
+    private bool[] _states;
 
     private void Awake()
     {
         _switchToggles = new Toggle[switches.Length];
+        _states = new bool[switches.Length];
         for (int i = 0; i < switches.Length; i++)
         { _switchToggles[i] = switches[i].GetComponent<Toggle>(); }
     }
@@ -58,7 +61,60 @@ public class EightSwitches : GameEventTrigger
     {
         base.EndEvent();
 
-
+        switch (state)
+        {
+            case OnOff.None: // NONE
+                bool flipped = false;
+                for (int i = 0; i < _switchToggles.Length; i++)
+                {
+                    if (_states[i] != _switchToggles[i].isOn)
+                    {
+                        flipped = true;
+                        Singleton.Global.GameManager.Intensity += 5;
+                    }
+                }
+                if (!flipped)
+                {
+                    Singleton.Global.GameManager.Intensity -= 5;
+                }
+                break;
+            case OnOff.On: // ON
+                int numToFlip = _numToFlip;
+                for (int i = 0; i < _switchToggles.Length; i++)
+                {
+                    if (_switchToggles[i].isOn)
+                    {
+                        numToFlip--;
+                    }
+                }
+                if (numToFlip != 0)
+                {
+                    Singleton.Global.GameManager.Intensity += 15;
+                }
+                else
+                {
+                    Singleton.Global.GameManager.Intensity -= 5;
+                }
+                break;
+            case OnOff.Off: // OFF
+                numToFlip = _numToFlip;
+                for (int i = 0; i < _switchToggles.Length; i++)
+                {
+                    if (!_switchToggles[i].isOn)
+                    {
+                        numToFlip--;
+                    }
+                }
+                if (numToFlip != 0)
+                {
+                    Singleton.Global.GameManager.Intensity += 15;
+                }
+                else
+                {
+                    Singleton.Global.GameManager.Intensity -= 5;
+                }
+                break;
+        }
     }
 
     public override void UpdateEvent()
@@ -93,6 +149,15 @@ public class EightSwitches : GameEventTrigger
         {
             state = OnOff.None;
             _numToFlip = 8;
+            for (int i = 0; i < _switchToggles.Length; i++)
+            {
+                int swap = Singleton.Global.Random.Next(2);
+                if (swap == 0)
+                {
+                    _switchToggles[i].isOn = !_switchToggles[i].isOn;
+                }
+                _states[i] = _switchToggles[i].isOn;
+            }
         }
         StartCoroutine(Wait(timePerSwitch * _numToFlip));
     }
