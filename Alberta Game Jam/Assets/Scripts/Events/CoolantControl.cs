@@ -19,7 +19,7 @@ public class CoolantControl : GameEventTrigger
     public override void StartEvent()
     {
         base.StartEvent();
-        temperature = 60;
+        temperature = 150;
         Singleton.Global.DialogueManager.BeginDialogue(startMessage);
         StartCoroutine(EventTimer(eventTime));
     }
@@ -32,11 +32,11 @@ public class CoolantControl : GameEventTrigger
 
         temperature += Time.deltaTime * (chance == 0
             ? raiseTemp
-                ? 1
-                : 5
+                ? 5
+                : 10
             : raiseTemp
-                ? -5
-                : -1);
+                ? -10
+                : -5);
 
         float intensityDelta;
         if (temperature.ValueBetween(lowerTolerance, upperTolerance))
