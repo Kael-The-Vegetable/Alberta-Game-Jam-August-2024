@@ -6,7 +6,7 @@ public class Section : MonoBehaviour
     [field: SerializeField]
     public EventController EventController { get; private set; }
     
-    public GameEventTrigger[] Events { get; set; }
+    [field:SerializeField] public GameEventTrigger[] Events { get; set; }
 
     [HideInInspector]
     public GameEventTrigger runningEvent;
@@ -14,6 +14,7 @@ public class Section : MonoBehaviour
 
     public void ChooseRandomEvent(EventController.Callback callback)
     {
+        Debug.Log(Events.Length);
         string msg;
         bool success = false;
         if (IsEventRunning)
