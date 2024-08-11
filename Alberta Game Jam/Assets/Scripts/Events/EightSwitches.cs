@@ -36,7 +36,15 @@ public class EightSwitches : GameEventTrigger
     [SerializeField] private int _numToFlip;
 
     public GameObject[] switches;
+    public float timePerSwitch = 2;
     private Toggle[] _switchToggles;
+
+    private void Awake()
+    {
+        _switchToggles = new Toggle[switches.Length];
+        for (int i = 0; i < switches.Length; i++)
+        { _switchToggles[i] = switches[i].GetComponent<Toggle>(); }
+    }
 
     private void ResetSwitches(bool value)
     {
@@ -49,6 +57,8 @@ public class EightSwitches : GameEventTrigger
     public override void EndEvent()
     {
         base.EndEvent();
+
+
     }
 
     public override void UpdateEvent()
@@ -82,6 +92,14 @@ public class EightSwitches : GameEventTrigger
         else // DO NOTHING
         {
             state = OnOff.None;
+            _numToFlip = 8;
         }
+        StartCoroutine(Wait(timePerSwitch * _numToFlip));
+    }
+
+    private IEnumerator Wait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        EndEvent();
     }
 }
