@@ -9,14 +9,14 @@ public class NumberConversion : GameEventTrigger
     private string[] _messages =
     {
         "Send 135 Watts to the Thrusters by pressing the numbers!",
-        "Power is out, Send 249035 Watts out by pressing the numbers!",
-        "Power is out, Send 38645 Watts out by pressing the numbers!"
+        "Power is out, Send 2495 Watts out by pressing the numbers!",
+        "Power is out, Send 385 Watts out by pressing the numbers!"
     };
     private int[] _messageConversions =
     {
         135,
-        249035,
-        38645
+        2495,
+        385
     };
     private int _chosenInteger;
     private int _integerGiven = 0;
