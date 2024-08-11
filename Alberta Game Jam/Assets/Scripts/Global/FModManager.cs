@@ -55,7 +55,7 @@ public class FModManager : MonoBehaviour
     private List<EventInstance> currentEvents;
     private List<StudioEventEmitter> eventEmitters;
 
-    private EventInstance _music;
+    public EventInstance Music;
 
     private void Awake()
     {
@@ -110,9 +110,12 @@ public class FModManager : MonoBehaviour
 
     private void InitializeMusic(EventReference sound)
     {
-        _music = CreateInstance(sound);
-        _music.start();
+        Music = CreateInstance(sound);
+        Music.start();
     }
+    public void SetMusicIntensity(string paramName, float intensity)
+        => Music.setParameterByName(paramName, intensity);
+    
 
     private void CleanUpSounds()
     {
