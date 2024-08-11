@@ -606,7 +606,7 @@ MonoBehaviour:
   - {fileID: 459793332}
   - {fileID: 867587222}
   - {fileID: 1110904094}
-  blownUpTime: 0
+  blownUpTime: 15
   firedTime: 0
 --- !u!1 &852837079
 GameObject:
@@ -897,6 +897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110904096}
   - component: {fileID: 1110904095}
+  - component: {fileID: 1110904097}
   m_Layer: 0
   m_Name: Game-over-background-03
   m_TagString: Untagged
@@ -971,6 +972,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1110904097
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110904094}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ec695c99302bf14459d2e77789b6beab, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ec695c99302bf14459d2e77789b6beab, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1372016520
 GameObject:
   m_ObjectHideFlags: 0
