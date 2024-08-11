@@ -5,7 +5,8 @@ public class TempControl : GameEventTrigger
 {
     public string startMessage;
     [Min(0)] public float eventTime;
-
+    public bool raiseTemp = true;
+    public ValueDisplay temperatureDisplay;
 
     public int temperature;
     [Range(50, 100)] public int upperTolerance;
@@ -16,6 +17,7 @@ public class TempControl : GameEventTrigger
         base.StartEvent();
         temperature = 50;
         Singleton.Global.DialogueManager.BeginDialogue(startMessage);
+        StartCoroutine(EventTimer(eventTime));
     }
 
     public override void UpdateEvent()
@@ -25,8 +27,12 @@ public class TempControl : GameEventTrigger
         int chance = Singleton.Global.Random.Next(2);
 
         temperature += chance == 0
-            ? -5
-            : 5;
+            ? raiseTemp 
+                ? -1
+                : -5
+            : raiseTemp
+                ? 5
+                : 1;
 
         int intesityDelta;
         if (temperature.ValueBetween(lowerTolerance, upperTolerance))
@@ -39,6 +45,10 @@ public class TempControl : GameEventTrigger
         }
 
         Singleton.Global.GameManager.Intensity += intesityDelta;
+        if (temperatureDisplay != null)
+        {
+            temperatureDisplay.value = temperature * 10;
+        }
     }
 
     public override void EndEvent()
