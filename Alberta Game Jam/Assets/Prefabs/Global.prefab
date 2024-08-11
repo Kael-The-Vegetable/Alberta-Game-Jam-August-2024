@@ -93,6 +93,13 @@ MonoBehaviour:
       Data3: 1927585456
       Data4: 1382473497
     Path: event:/Misc/500_cigarettes
+  <explosion>k__BackingField:
+    Guid:
+      Data1: -177868887
+      Data2: 1191604295
+      Data3: -2092426087
+      Data4: -2100599802
+    Path: event:/SFX/GameSFX/explosion
 --- !u!1 &1882913472131063095
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea1f41d0da5f5f418e3cb4c1d3fc4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeElapsed: 0
+  runTimer: 0
+  _intensity: 0
 --- !u!1 &6623059604343025828
 GameObject:
   m_ObjectHideFlags: 0

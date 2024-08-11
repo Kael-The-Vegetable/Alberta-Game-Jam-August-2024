@@ -31,6 +31,7 @@ public class EndAnimation : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);
         images[2].SetActive(true);
         images[1].SetActive(false);
+        Singleton.Global.FModManager.PlayOneShot(Singleton.Global.FModEvents.explosion, transform.position);
     }
     private IEnumerator Fired(float time)
     {
