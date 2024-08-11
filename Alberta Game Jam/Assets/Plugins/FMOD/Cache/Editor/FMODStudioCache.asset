@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638589224842183087
+  lastModified: 638589683559985507
   FileSizes:
   - Name: 
-    Value: 1594
+    Value: 1708
   Exists: 1
 --- !u!114 &-6070128771273884183
 MonoBehaviour:
@@ -107,7 +107,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638588981628950852
+  lastModified: 638589683559890878
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -144,7 +144,7 @@ MonoBehaviour:
   - {fileID: -1626965376274752025}
   StringsBanks:
   - {fileID: -6987017123908629358}
-  cacheTime: 638589224842183087
+  cacheTime: 638589683559985507
   cacheVersion: 131618
 --- !u!114 &499523169416814013
 MonoBehaviour:
@@ -192,8 +192,8 @@ MonoBehaviour:
     Data3: 1927585456
     Data4: 1382473497
   Banks:
-  - {fileID: 2355517787527908546}
   - {fileID: 4454872917385175540}
+  - {fileID: 2355517787527908546}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -270,7 +270,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Game.bank
   Name: Desktop/Game
   StudioPath: bank:/Game
-  lastModified: 638589224842183087
+  lastModified: 638589683559841600
   FileSizes: []
   Exists: 1
 --- !u!114 &2527316347998265808
@@ -319,8 +319,8 @@ MonoBehaviour:
     Data3: -60851278
     Data4: -630746295
   Banks:
-  - {fileID: 2355517787527908546}
   - {fileID: 4454872917385175540}
+  - {fileID: 2355517787527908546}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -348,14 +348,15 @@ MonoBehaviour:
     Data4: -333375208
   Banks:
   - {fileID: 2355517787527908546}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters:
   - {fileID: -6070128771273884183}
+  - {fileID: 7855403088796705242}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 113333
 --- !u!114 &4454872917385175540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,5 +421,29 @@ MonoBehaviour:
     data2: 2460364993
   Type: 0
   IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &7855403088796705242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/bool_music_fadeout
+  m_EditorClassIdentifier: 
+  Name: bool_music_fadeout
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 4079769119
+    data2: 2478040028
+  Type: 1
+  IsGlobal: 0
   Labels: []
   Exists: 1

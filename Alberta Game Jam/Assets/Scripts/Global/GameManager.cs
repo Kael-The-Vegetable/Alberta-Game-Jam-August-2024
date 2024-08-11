@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
             _intensity = value;
         }
     }
+
     private void Awake()
     {
         
@@ -79,6 +80,4 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         variable(finalValue);
     }
-
-
 }

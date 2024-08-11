@@ -3,35 +3,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TextPrinter : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
-    public float charactersPerSecond;
+    public float charactersPerSecond = 1;
 
-    public TextMeshProUGUI label;
-    [TextArea]
-    string text;
+    public string dialogue;
+    public TextMeshProUGUI dialogueLabel;
 
     public UnityEvent onStartPrint;
     public UnityEvent onFinishPrint;
 
-    private void Awake()
+    public void BeginDialogue(string text)
     {
-        // cache the labels text.
-        text = label.text;
-        label.text = string.Empty;
-
-        // TODO: set charactersPerSecond the variable set in the settings object
-    }
-
-    public void BeginPrint()
-    {
-        onStartPrint?.Invoke();
+        dialogueLabel.text = string.Empty;
+        dialogue = text;
         StartCoroutine(ShowLetters(1 / charactersPerSecond));
     }
 
     private IEnumerator ShowLetters(float delay)
     {
-        for (int i = 0; i < text.Length; i++)
+        for (int i = 0; i < dialogue.Length; i++)
         {
             label.text += text[i];
             yield return new WaitForSeconds(delay);

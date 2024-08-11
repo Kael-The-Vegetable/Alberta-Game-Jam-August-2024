@@ -10,6 +10,7 @@ public class Singleton : MonoBehaviour
     public FModManager FModManager { get; private set; }
     public FModEvents FModEvents { get; private set; }
     public EventController EventController { get; set; }
+    public DialogueManager DialogueManager { get; set; }
     public System.Random Random { get; private set; } = new System.Random();
 
     private void Awake()
@@ -26,5 +27,6 @@ public class Singleton : MonoBehaviour
         GameManager = GetComponentInChildren<GameManager>();
         FModManager = GetComponentInChildren<FModManager>();
         FModEvents = GetComponentInChildren<FModEvents>();
+        DialogueManager = GetComponentInChildren<DialogueManager>();
     }
 }
