@@ -66,11 +66,11 @@ public class CoolantControl : GameEventTrigger
         base.EndEvent();
         if (temperature.ValueBetween(lowerTolerance, upperTolerance))
         {
-            Singleton.Global.GameManager.Intensity -= 5;
+            Singleton.Global.GameManager.Intensity -= 10;
         }
         else
         {
-            Singleton.Global.GameManager.Intensity += 15;
+            Singleton.Global.GameManager.Intensity += 30;
         }
 
         if (AlertImage != null)
