@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int Intensity { get; set; }
+    private void Awake()
+    {
+        
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        if(objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+
     /// <summary>
     /// Use this method to change the scene as per the build order.
     /// </summary>
@@ -32,4 +45,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         variable(finalValue);
     }
+
+
 }
