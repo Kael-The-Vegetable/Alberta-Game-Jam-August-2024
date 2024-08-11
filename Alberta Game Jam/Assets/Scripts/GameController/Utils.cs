@@ -11,4 +11,9 @@ public static class Utils
         else
         { return default; }
     }
+
+    public static bool ValueBetween(this int value, int min, int max)
+    {
+        return value >= min && value <= max;
+    }
 }
