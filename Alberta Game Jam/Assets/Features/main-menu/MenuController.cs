@@ -61,7 +61,7 @@ public abstract class MenuController : MonoBehaviour
     }
 
     public virtual void Move(float waitTime, Vector2 newPos) 
-        => gameObject.transform.DOMove(newPos, waitTime);
+        => gameObject.transform.DOMove(newPos, waitTime).SetUpdate(true);
     
     public virtual void Outro(float waitTime, GameObject newActiveObj, Vector2 newPos) 
         => StartCoroutine(OutroWait(waitTime, newActiveObj, newPos));
@@ -71,7 +71,7 @@ public abstract class MenuController : MonoBehaviour
         Move(waitTime, newPos);
         yield return new WaitForSecondsRealtime(waitTime);
         gameObject.SetActive(false);
-        newActiveObj.SetActive(true);
+        newActiveObj.SetActive(!newActiveObj.activeInHierarchy);
     }
 
     internal virtual void PressButton()
