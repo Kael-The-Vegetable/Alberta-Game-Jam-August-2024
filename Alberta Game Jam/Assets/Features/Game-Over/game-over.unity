@@ -606,7 +606,7 @@ MonoBehaviour:
   - {fileID: 459793332}
   - {fileID: 867587222}
   - {fileID: 1110904094}
-  blownUpTime: 15
+  blownUpTime: 10
   firedTime: 0
 --- !u!1 &852837079
 GameObject:
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   - {fileID: 23104760}
   - {fileID: 852837079}
   eventSystem: {fileID: 1372016522}
-  introWaitTime: 10
+  introWaitTime: 15
 --- !u!114 &1688455232
 MonoBehaviour:
   m_ObjectHideFlags: 0
