@@ -8,6 +8,6 @@ public class DialogueDisplay : MonoBehaviour
     public TMP_Text dialogueText;
     public void DialoguePrompt(string dialogue)
     {
-        dialogueText.text = Singleton.Global.GameManager.dialogue;
+        //dialogueText.text = Singleton.Global.GameManager.dialogue;
     }
 }

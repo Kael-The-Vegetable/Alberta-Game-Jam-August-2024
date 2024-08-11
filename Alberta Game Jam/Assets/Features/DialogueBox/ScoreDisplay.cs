@@ -8,6 +8,6 @@ public class ScoreDisplay : MonoBehaviour
     
     public void IntensityCount(int intensity)
     {
-        scoreText.text = "Intensity: " + Singleton.Global.GameManager.intensity;
+        scoreText.text = "Intensity: " + Singleton.Global.GameManager.Intensity;
     }
 }
