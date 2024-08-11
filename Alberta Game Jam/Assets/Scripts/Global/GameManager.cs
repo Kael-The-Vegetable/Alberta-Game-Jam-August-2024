@@ -13,8 +13,23 @@ public class GameManager : MonoBehaviour
         get => _intensity; 
         set
         {
-            
-            if (value >= 100)
+            if (value < 25)
+            {
+                Singleton.Global.FModManager.SetMusicIntensity("music_intensity", 0);
+            }
+            else if  (value  < 50)
+            {
+                Singleton.Global.FModManager.SetMusicIntensity("music_intensity", 1);
+            }
+            else if (value < 75)
+            {
+                Singleton.Global.FModManager.SetMusicIntensity("music_intensity", 2);
+            }
+            else if (value < 100)
+            {
+                Singleton.Global.FModManager.SetMusicIntensity("music_intensity", 3);
+            }
+            else
             {
                 ChangeScene(3);
             }
