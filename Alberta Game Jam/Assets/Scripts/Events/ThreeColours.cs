@@ -15,7 +15,7 @@ public class ThreeColours : MonoBehaviour, IGameEvent
     public Colour colour;
 
     [Min(0)] public float delayTime;
-    [Min(0)] public float tolerance;
+    public bool clickable;
 
     public void OnEventEnd()
     {
