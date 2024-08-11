@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
             {
                 ChangeScene(3);
             }
+
+            if (value < 0) 
+            { value = 0; }
             _intensity = value;
         }
     }
