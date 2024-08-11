@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int intensity = 0;
+    public string dialogue;
     private ScoreDisplay intensityDisplay;
+    private DialogueDisplay dialogueDisplay;
     private void Awake()
     {
         
@@ -21,11 +23,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         intensityDisplay = GameObject.Find("IntensityCounter").GetComponent<ScoreDisplay>();
+        dialogueDisplay = GameObject.Find("DialogueBox").GetComponent<DialogueDisplay>();
     }
 
     void Update()
     {
         intensityDisplay.IntensityCount(intensity++);
+        if(intensity >= 1000)
+        {
+            dialogue = "WARNING: SYSTEM OVERRIDE!!!";
+        }
+        dialogueDisplay.DialoguePrompt(dialogue);
     }
 
 
