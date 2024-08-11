@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventController : MonoBehaviour
 {
@@ -16,16 +18,24 @@ public class EventController : MonoBehaviour
 
     public Callback callback;
 
+    [field: SerializeField]
     public Section[] Sections { get; set; }
 
     private void Awake()
     {
         callback = EventCallback;
 
-        Sections ??= FindObjectsOfType<Section>();
         //TODO: remove later
         StartEventCycle();
+
+        SceneManager.sceneLoaded += FindSections;
     }
+
+    private void FindSections(Scene arg0, LoadSceneMode arg1)
+    {
+        Sections = FindObjectsOfType<Section>();
+    }
+
     void EventCallback(bool success, string message)
     {
         if (success)
