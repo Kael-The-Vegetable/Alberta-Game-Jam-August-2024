@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private int _currentBuildID;
     public float timeElapsed = 0;
+    public bool runTimer = false;
 
     [SerializeField] private float _intensity;
     public float Intensity 
@@ -52,6 +53,18 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
         
         SceneManager.activeSceneChanged += SceneChanged;
+    }
+
+    private void Update()
+    {
+        if (runTimer)
+        {
+            timeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            timeElapsed = 0;
+        }
     }
 
     private void SceneChanged(Scene old, Scene next)
