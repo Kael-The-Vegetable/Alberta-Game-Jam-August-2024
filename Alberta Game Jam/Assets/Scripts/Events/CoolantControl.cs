@@ -19,7 +19,7 @@ public class CoolantControl : GameEventTrigger
     public override void StartEvent()
     {
         base.StartEvent();
-        temperature = 150;
+        temperature = 300;
         Singleton.Global.DialogueManager.BeginDialogue(startMessage);
         StartCoroutine(EventTimer(eventTime));
     }
