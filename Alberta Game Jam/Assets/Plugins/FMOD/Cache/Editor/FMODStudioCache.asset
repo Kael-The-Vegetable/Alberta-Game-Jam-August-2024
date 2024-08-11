@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638589683559985507
+  lastModified: 638589851687201682
   FileSizes:
   - Name: 
-    Value: 1708
+    Value: 1748
   Exists: 1
 --- !u!114 &-6070128771273884183
 MonoBehaviour:
@@ -92,6 +92,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-2888897224342931468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/GameSFX/explosion
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/GameSFX/explosion
+  Guid:
+    Data1: -177868887
+    Data2: 1191604295
+    Data3: -2092426087
+    Data4: -2100599802
+  Banks:
+  - {fileID: 2355517787527908546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4950
 --- !u!114 &-1626965376274752025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +134,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638589683559890878
+  lastModified: 638589851687085943
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -135,6 +162,7 @@ MonoBehaviour:
   - {fileID: 1654013869255344221}
   - {fileID: 2553716788198453260}
   - {fileID: 499523169416814013}
+  - {fileID: -2888897224342931468}
   EditorParameters:
   - {fileID: -5612304450066630793}
   - {fileID: 5305275204074035085}
@@ -144,7 +172,7 @@ MonoBehaviour:
   - {fileID: -1626965376274752025}
   StringsBanks:
   - {fileID: -6987017123908629358}
-  cacheTime: 638589829015387241
+  cacheTime: 638589851687201682
   cacheVersion: 131618
 --- !u!114 &499523169416814013
 MonoBehaviour:
@@ -192,8 +220,8 @@ MonoBehaviour:
     Data3: 1927585456
     Data4: 1382473497
   Banks:
-  - {fileID: 2355517787527908546}
   - {fileID: 4454872917385175540}
+  - {fileID: 2355517787527908546}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -270,7 +298,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Game.bank
   Name: Desktop/Game
   StudioPath: bank:/Game
-  lastModified: 638589829015377150
+  lastModified: 638589851687037901
   FileSizes: []
   Exists: 1
 --- !u!114 &2527316347998265808
@@ -319,8 +347,8 @@ MonoBehaviour:
     Data3: -60851278
     Data4: -630746295
   Banks:
-  - {fileID: 2355517787527908546}
   - {fileID: 4454872917385175540}
+  - {fileID: 2355517787527908546}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
