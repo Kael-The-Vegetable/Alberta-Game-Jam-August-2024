@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static ThreeColours;
@@ -11,14 +12,16 @@ public class NumberConversion : GameEventTrigger
         "Send 135 Watts to the Thrusters by pressing the numbers!",
         "Power is out, Send 2495 Watts out by pressing the numbers!",
         "Power is out, Send 385 Watts out by pressing the numbers!",
-        "Send 9502 Watts to the Command Deck by pressing the numbers!"
+        "Send 9502 Watts to the Command Deck by pressing the numbers!",
+        "THE SPACE ORANGUTANGS ESCAPED THEIR ENCLOSURE! CLOSE THE BULKHEADS, SEND 7820 WATTS IMMEDIATELYY!"
     };
     private int[] _messageConversions =
     {
         135,
         2495,
         385,
-        9502
+        9502,
+        7820
     };
     private int _chosenInteger;
     private int _integerGiven = 0;
