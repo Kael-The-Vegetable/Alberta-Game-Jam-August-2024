@@ -4452,7 +4452,7 @@ MonoBehaviour:
   <EventName>k__BackingField: Temprature Control
   <EventDescription>k__BackingField: 
   isRunning: 0
-  startMessage: The automatic coolant pump has broke! Use the switch on your right
+  startMessage: The automatic coolant pump has broken! Use the switch on your right
     to manually control it!
   eventTime: 15
   raiseTemp: 1
