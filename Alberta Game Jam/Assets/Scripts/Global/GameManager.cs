@@ -5,6 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int intensity = 0;
+    public string dialogue;
+    private ScoreDisplay intensityDisplay;
+    private DialogueDisplay dialogueDisplay;
+    private void Awake()
+    {
+        
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        if(objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        intensityDisplay = GameObject.Find("IntensityCounter").GetComponent<ScoreDisplay>();
+        dialogueDisplay = GameObject.Find("DialogueBox").GetComponent<DialogueDisplay>();
+    }
+
+    void Update()
+    {
+        intensityDisplay.IntensityCount(intensity++);
+        if(intensity >= 1000)
+        {
+            dialogue = "WARNING: SYSTEM OVERRIDE!!!";
+        }
+        dialogueDisplay.DialoguePrompt(dialogue);
+    }
+
+
     /// <summary>
     /// Use this method to change the scene as per the build order.
     /// </summary>
@@ -32,4 +64,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         variable(finalValue);
     }
+
+
 }
