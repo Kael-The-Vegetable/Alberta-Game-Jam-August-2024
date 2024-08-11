@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private int _currentBuildID;
 
-    private float _intensity;
+    [SerializeField] private float _intensity;
     public float Intensity 
     {
         get => _intensity; 
