@@ -20,23 +20,24 @@ public class EventController : MonoBehaviour
 
     private void Awake()
     {
-        callback = (b, m) =>
-        {
-            eventWasTriggered = b;
-
-            if (b)
-            {
-                Debug.Log(m);
-            }
-            else
-            {
-                Debug.LogWarning(m);
-            }
-        };
+        callback = EventCallback;
 
         Sections ??= FindObjectsOfType<Section>();
         //TODO: remove later
         StartEventCycle();
+    }
+    void EventCallback(bool success, string message)
+    {
+        eventWasTriggered = success;
+
+        if (success)
+        {
+            Debug.Log(message);
+        }
+        else
+        {
+            Debug.LogWarning(message);
+        }
     }
 
     public void StartEventCycle()
@@ -51,18 +52,23 @@ public class EventController : MonoBehaviour
     {
         eventWasTriggered = null;
         yield return new WaitForSeconds(seconds);
-        var section = Sections.Where(s => s.enabled && !s.IsEventRunning).ToArray().SelectRandomElement();
-        section.ChooseRandomEvent(callback);
+        var availableSections = Sections.Where(s => s.enabled && !s.IsEventRunning).ToArray();
+        Section section = null;
+        if (availableSections.Length > 0)
+        {
+            availableSections.SelectRandomElement();
+            section.ChooseRandomEvent(callback);
+        }
 
         if ((bool)eventWasTriggered)
         {
-            // Continue the cycle
-            StartCoroutine(EventCycle(seconds));
+            StartEventCycle();
+            Debug.Log("An Event Was triggered");
         }
         else
         {
-            // Stop the cycle
-            Debug.Log("Stopping event cycle");
+            Debug.Log("No event was triggered");
         }
+
     }
 }

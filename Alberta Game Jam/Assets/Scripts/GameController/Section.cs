@@ -19,7 +19,7 @@ public class Section : MonoBehaviour
         bool success = false;
         if (IsEventRunning)
         {
-            msg = $"Event \"{runningEvent.EventName}\"";
+            msg = $"An Event is already running";
             callback(success, msg);
         }
         else
@@ -34,8 +34,8 @@ public class Section : MonoBehaviour
             }
             catch (System.Exception ex)
             {
-                Debug.LogException(ex);
-                msg = $"Event randomEvent.EventName failed to start.";
+                Debug.LogError(ex);
+                msg = $"Event failed to start.";
             }
 
             callback(success, msg);
