@@ -5,8 +5,8 @@ using UnityEngine;
 public class PauseListener : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public void PauseGame()
+    public void TogglePauseMenu()
     {
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
     }
 }
