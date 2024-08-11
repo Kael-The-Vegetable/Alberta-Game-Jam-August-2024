@@ -5,7 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int Intensity { get; set; }
+    private int _currentBuildID;
+
+    private int _intensity;
+    public int Intensity 
+    {
+        get => _intensity; 
+        set
+        {
+            
+            if (value >= 100)
+            {
+                ChangeScene(3);
+            }
+            _intensity = value;
+        }
+    }
     private void Awake()
     {
         
@@ -21,7 +36,20 @@ public class GameManager : MonoBehaviour
 
     private void SceneChanged(Scene old, Scene next)
     {
-
+        _currentBuildID = next.buildIndex;
+        switch (_currentBuildID)
+        {
+            case 0:// intro
+                break;
+            case 1:// main menu
+                Intensity = 0;
+                break;
+            case 2:// main game
+                break;
+            case 3:// game over
+                Intensity = 0;
+                break;
+        }
     }
 
     /// <summary>
