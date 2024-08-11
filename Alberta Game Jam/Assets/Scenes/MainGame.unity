@@ -4777,7 +4777,8 @@ MonoBehaviour:
   <EventName>k__BackingField: Coolant Control
   <EventDescription>k__BackingField: 
   isRunning: 0
-  startMessage: The coolant's auto-regulator has broken! Increase the temp to 300!
+  startMessage: The coolant's auto-regulator has broken! Keep the temperature at
+    300!
   eventTime: 30
   raiseTemp: 1
   temperatureDisplay: {fileID: 1007629927}
