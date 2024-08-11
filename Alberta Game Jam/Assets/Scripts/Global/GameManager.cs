@@ -15,8 +15,14 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.activeSceneChanged += SceneChanged;
     }
 
+    private void SceneChanged(Scene old, Scene next)
+    {
+
+    }
 
     /// <summary>
     /// Use this method to change the scene as per the build order.
