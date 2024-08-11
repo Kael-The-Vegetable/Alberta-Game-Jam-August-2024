@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int _currentBuildID;
+    public float timeElapsed = 0;
 
     [SerializeField] private float _intensity;
     public float Intensity 
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
         //    Destroy(this.gameObject);
         //}
         //DontDestroyOnLoad(gameObject);
-
+        
         SceneManager.activeSceneChanged += SceneChanged;
     }
 
