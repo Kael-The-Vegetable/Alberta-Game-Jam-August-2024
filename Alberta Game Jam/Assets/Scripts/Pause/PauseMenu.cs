@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MenuController
 {
@@ -8,16 +9,30 @@ public class PauseMenu : MenuController
     public GameObject mainPause;
     public GameObject GameBoard;
 
+    public Selectable[] gameBoardButtons;
+
     internal override void OnEnable()
     {
         base.OnEnable();
-        GameBoard.SetActive(false);
+        //GameBoard.SetActive(false);
+        Singleton.Global.GameManager.ToggleTimer();
+        gameBoardButtons = GameBoard.GetComponentsInChildren<Selectable>();
+        foreach (Selectable gameBoardButton in gameBoardButtons)
+        {
+            gameBoardButton.interactable = false;
+        }
     }
 
     internal override void OnDisable()
     {
         base.OnDisable();
-        GameBoard.SetActive(true);
+        //GameBoard.SetActive(true);
+        Singleton.Global.GameManager.ToggleTimer();
+
+        foreach (Selectable gameBoardButton in gameBoardButtons)
+        {
+            gameBoardButton.interactable = true;
+        }
     }
 
     internal override void Awake()

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Intesimeter : MonoBehaviour
 {
     private ValueDisplay display;
     private void Awake()
@@ -14,7 +12,7 @@ public class Timer : MonoBehaviour
     {
         if (display != null)
         {
-            display.value = Singleton.Global.GameManager.timeElapsed;
+            display.value = Singleton.Global.GameManager.Intensity;
         }
     }
 }

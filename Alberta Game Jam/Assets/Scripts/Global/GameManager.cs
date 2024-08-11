@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
         SceneManager.activeSceneChanged += SceneChanged;
     }
 
+    public void ToggleTimer()
+    {
+        runTimer = !runTimer;
+    }
+
     private void Update()
     {
         if (runTimer)
