@@ -36,6 +36,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueLabel.text = string.Empty;
         dialogue = text;
+        Singleton.Global.FModManager.PlayOneShot(Singleton.Global.FModEvents.cigarettes, transform.position);
         StartCoroutine(ShowLetters(1 / charactersPerSecond));
     }
 
