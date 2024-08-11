@@ -10,13 +10,15 @@ public class NumberConversion : GameEventTrigger
     {
         "Send 135 Watts to the Thrusters by pressing the numbers!",
         "Power is out, Send 2495 Watts out by pressing the numbers!",
-        "Power is out, Send 385 Watts out by pressing the numbers!"
+        "Power is out, Send 385 Watts out by pressing the numbers!",
+        "Send 9502 Watts to the Command Deck by pressing the numbers!"
     };
     private int[] _messageConversions =
     {
         135,
         2495,
-        385
+        385,
+        9502
     };
     private int _chosenInteger;
     private int _integerGiven = 0;
