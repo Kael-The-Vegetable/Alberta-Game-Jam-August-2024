@@ -6125,10 +6125,9 @@ MonoBehaviour:
   <EventName>k__BackingField: Three Colours
   <EventDescription>k__BackingField: 
   isRunning: 0
-  <Trigger>k__BackingField: {fileID: 0}
   colour: 0
   indicator: {fileID: 194358226}
-  delayTime: 10
+  delayTime: 1
 --- !u!114 &1762433995
 MonoBehaviour:
   m_ObjectHideFlags: 0

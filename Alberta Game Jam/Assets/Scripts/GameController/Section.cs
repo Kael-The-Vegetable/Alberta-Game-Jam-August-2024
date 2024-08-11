@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Section : MonoBehaviour
 {
     [field: SerializeField]
     public EventController EventController { get; private set; }
-    
-    [field:SerializeField] public GameEventTrigger[] Events { get; set; }
+
+    [field: SerializeField] public GameEventTrigger[] Events { get; set; }
 
     [HideInInspector]
     public GameEventTrigger runningEvent;
@@ -24,7 +25,9 @@ public class Section : MonoBehaviour
         }
         else
         {
-            var randomEvent = Events.SelectRandomElement();
+            var availableEvents = Events.Where(e => !e.isRunning).ToArray();
+            var randomEvent = availableEvents.SelectRandomElement();
+
             try
             {
                 runningEvent = randomEvent;
@@ -37,7 +40,6 @@ public class Section : MonoBehaviour
                 Debug.LogError(ex);
                 msg = $"Event failed to start.";
             }
-
             callback(success, msg);
         }
     }
