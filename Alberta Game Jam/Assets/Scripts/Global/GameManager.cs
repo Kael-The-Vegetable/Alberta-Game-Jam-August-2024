@@ -24,13 +24,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
-        if(objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+        // This is unnecessary
+        //GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        //if(objs.Length > 1)
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        //DontDestroyOnLoad(gameObject);
 
         SceneManager.activeSceneChanged += SceneChanged;
     }

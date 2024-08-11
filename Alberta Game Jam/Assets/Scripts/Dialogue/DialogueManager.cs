@@ -22,7 +22,10 @@ public class DialogueManager : MonoBehaviour
 
     private void FindDialogueBox(Scene arg0, LoadSceneMode arg1)
     {
-        dialogueLabel = GameObject.Find("DialogueBox").GetComponent<TextMeshProUGUI>();
+        if (dialogueLabel == null && !GameObject.Find("DialogueBox").TryGetComponent(out dialogueLabel))
+        {
+            Debug.LogWarning("No gameObject called \"DialogueBox\" was found.");
+        }
     }
 
     public void BeginDialogue(string text)
