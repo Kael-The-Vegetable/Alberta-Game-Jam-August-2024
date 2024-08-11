@@ -55,14 +55,14 @@ public class FModManager : MonoBehaviour
     private List<EventInstance> currentEvents;
     private List<StudioEventEmitter> eventEmitters;
 
+    private EventInstance _music;
+
     private void Awake()
     {
         currentEvents = new List<EventInstance>();
         eventEmitters = new List<StudioEventEmitter>();
 
         SceneManager.activeSceneChanged += SceneChanged;
-
-
     }
 
     public void PlayOneShot(EventReference sound, Vector3 pos)
@@ -99,11 +99,18 @@ public class FModManager : MonoBehaviour
             case 1:// main menu
                 break;
             case 2:// game
+                InitializeMusic(Singleton.Global.FModEvents.gameMusic);
                 break;
             default:// game over
                 break;
         }
         CleanUpSounds();
+    }
+
+    private void InitializeMusic(EventReference sound)
+    {
+        _music = CreateInstance(sound);
+        _music.start();
     }
 
     private void CleanUpSounds()
