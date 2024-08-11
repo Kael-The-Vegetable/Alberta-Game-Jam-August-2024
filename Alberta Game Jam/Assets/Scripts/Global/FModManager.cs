@@ -98,6 +98,7 @@ public class FModManager : MonoBehaviour
             case 0:// intro
                 break;
             case 1:// main menu
+                InitializeMusic(Singleton.Global.FModEvents.menuMusic);
                 break;
             case 2:// game
                 InitializeMusic(Singleton.Global.FModEvents.gameMusic);
