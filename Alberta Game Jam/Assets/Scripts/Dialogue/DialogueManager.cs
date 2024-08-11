@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,6 +14,16 @@ public class DialogueManager : MonoBehaviour
 
     public UnityEvent onStartPrint;
     public UnityEvent onFinishPrint;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += FindDialogueBox;
+    }
+
+    private void FindDialogueBox(Scene arg0, LoadSceneMode arg1)
+    {
+        dialogueLabel = GameObject.Find("DialogueBox").GetComponent<TextMeshProUGUI>();
+    }
 
     public void BeginDialogue(string text)
     {
@@ -24,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     {
         for (int i = 0; i < dialogue.Length; i++)
         {
-            label.text += text[i];
+            dialogueLabel.text += dialogue[i];
             yield return new WaitForSeconds(delay);
         }
         yield return new WaitForSeconds(10 * delay);
