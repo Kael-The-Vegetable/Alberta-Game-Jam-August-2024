@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     {
         if (display != null)
         {
-            display.value = Singleton.Global.GameManager.timeElapsed;
+            display.value = (float)System.Math.Round(Singleton.Global.GameManager.timeElapsed, 2);
         }
     }
 }

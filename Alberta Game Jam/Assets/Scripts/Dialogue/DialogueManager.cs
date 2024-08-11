@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
             dialogueLabel.text += dialogue[i];
             yield return new WaitForSeconds(delay);
         }
-        yield return new WaitForSeconds(100 * delay);
+        yield return new WaitForSeconds(dialogue.Length * delay);
         onFinishPrint?.Invoke();
         dialogueLabel.text = string.Empty;
     }
