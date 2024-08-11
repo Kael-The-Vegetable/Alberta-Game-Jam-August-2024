@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class ValueDisplay : MonoBehaviour
 {
+    [TextArea]
     public string prefix;
+    [TextArea]
     public string suffix;
     public float value;
 
@@ -20,6 +23,7 @@ public class ValueDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_TextMeshPro.text = $"{prefix} {value} {suffix}";
+        m_TextMeshPro = m_TextMeshPro != null ? m_TextMeshPro : GetComponent<TextMeshProUGUI>();
+        m_TextMeshPro.text = prefix + value + suffix;
     }
 }

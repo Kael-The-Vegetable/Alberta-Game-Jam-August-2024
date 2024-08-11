@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private int _currentBuildID;
 
-    private int _intensity;
-    public int Intensity 
+    private float _intensity;
+    public float Intensity 
     {
         get => _intensity; 
         set

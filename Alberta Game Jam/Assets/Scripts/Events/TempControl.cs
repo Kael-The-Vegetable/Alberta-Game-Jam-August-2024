@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TempControl : GameEventTrigger
 {
@@ -8,9 +9,11 @@ public class TempControl : GameEventTrigger
     public bool raiseTemp = true;
     public ValueDisplay temperatureDisplay;
 
-    public int temperature;
+    [Range(0, 100)] public float temperature;
     [Range(50, 100)] public int upperTolerance;
     [Range(0, 50)] public int lowerTolerance;
+
+    public Image AlertImage;
 
     public override void StartEvent()
     {
@@ -26,7 +29,7 @@ public class TempControl : GameEventTrigger
 
         int chance = Singleton.Global.Random.Next(2);
 
-        temperature += chance == 0
+        temperature += Time.deltaTime * chance == 0
             ? raiseTemp 
                 ? -1
                 : -5
@@ -34,20 +37,26 @@ public class TempControl : GameEventTrigger
                 ? 5
                 : 1;
 
-        int intesityDelta;
+        float intensityDelta;
         if (temperature.ValueBetween(lowerTolerance, upperTolerance))
         {
-            intesityDelta = 0;
+            intensityDelta = 0;
         }
         else
         {
-            intesityDelta = 1;
+            intensityDelta = 1f * Time.deltaTime;
         }
 
-        Singleton.Global.GameManager.Intensity += intesityDelta;
+        Singleton.Global.GameManager.Intensity += intensityDelta;
         if (temperatureDisplay != null)
         {
             temperatureDisplay.value = temperature * 10;
+        }
+
+        if (AlertImage != null)
+        {
+            AlertImage.color = temperature.ValueBetween(lowerTolerance, upperTolerance)
+                ? Color.green : Color.red;
         }
     }
 
@@ -62,6 +71,16 @@ public class TempControl : GameEventTrigger
         {
             Singleton.Global.GameManager.Intensity += 15;
         }
+
+        if (AlertImage != null)
+        {
+            AlertImage.color = Color.white;
+        }
+    }
+
+    public void ToggleTemperatureDirection()
+    {
+        raiseTemp = !raiseTemp;
     }
 
     private IEnumerator EventTimer(float seconds)
