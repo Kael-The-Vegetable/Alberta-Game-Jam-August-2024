@@ -66,14 +66,11 @@ public class GameManager : MonoBehaviour
         {
             timeElapsed += Time.deltaTime;
         }
-        else
-        {
-            timeElapsed = 0;
-        }
     }
 
     private void SceneChanged(Scene old, Scene next)
     {
+        timeElapsed = 0;
         _currentBuildID = next.buildIndex;
         switch (_currentBuildID)
         {
