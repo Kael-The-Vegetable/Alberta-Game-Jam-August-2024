@@ -1687,7 +1687,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Artist\n- Kelsie Gosse\n\nAudio\n- Aiden R. Collins-Cruickshank \n\nTools
-    Used\n- FMOD\n- DOTween"
+    Used\n- FMOD Studio by Firelight Technologies Pty Ltd.\n- DOTween"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9297a1e46f1dcf4d8879ee85a93237f, type: 2}
   m_sharedMaterial: {fileID: -2014018949771752432, guid: c9297a1e46f1dcf4d8879ee85a93237f, type: 2}
