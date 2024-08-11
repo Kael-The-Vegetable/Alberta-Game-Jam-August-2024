@@ -29,13 +29,13 @@ public class TempControl : GameEventTrigger
 
         int chance = Singleton.Global.Random.Next(2);
 
-        temperature += Time.deltaTime * chance == 0
+        temperature += Time.deltaTime * (chance == 0
             ? raiseTemp 
                 ? -1
                 : -5
             : raiseTemp
                 ? 5
-                : 1;
+                : 1);
 
         float intensityDelta;
         if (temperature.ValueBetween(lowerTolerance, upperTolerance))
