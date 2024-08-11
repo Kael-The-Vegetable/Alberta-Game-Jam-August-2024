@@ -16,6 +16,7 @@ public class ThreeColours : GameEventTrigger
 
     [Min(0)] public float delayTime;
 
+    public string startingMessage;
 
     private Colour _selectedColour;
 
@@ -56,6 +57,8 @@ public class ThreeColours : GameEventTrigger
     public override void StartEvent()
     {
         base.StartEvent();
+
+        Singleton.Global.DialogueManager.BeginDialogue(startingMessage);
 
         colour = (Colour)Singleton.Global.Random.Next(3);
         switch (colour)

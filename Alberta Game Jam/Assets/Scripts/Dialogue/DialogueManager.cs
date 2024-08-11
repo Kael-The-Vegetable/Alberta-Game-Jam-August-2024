@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-    public float charactersPerSecond = 1;
+    public float charactersPerSecond = 50;
 
     public string dialogue;
     public TextMeshProUGUI dialogueLabel;
