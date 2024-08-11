@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TempControl : GameEventTrigger
 {
@@ -8,9 +9,11 @@ public class TempControl : GameEventTrigger
     public bool raiseTemp = true;
     public ValueDisplay temperatureDisplay;
 
-    public int temperature;
+    [Range(0, 100)] public int temperature;
     [Range(50, 100)] public int upperTolerance;
     [Range(0, 50)] public int lowerTolerance;
+
+    public Image AlertImage;
 
     public override void StartEvent()
     {
@@ -49,6 +52,12 @@ public class TempControl : GameEventTrigger
         {
             temperatureDisplay.value = temperature * 10;
         }
+
+        if (AlertImage != null)
+        {
+            AlertImage.color = temperature.ValueBetween(lowerTolerance, upperTolerance)
+                ? Color.green : Color.red;
+        }
     }
 
     public override void EndEvent()
@@ -62,6 +71,16 @@ public class TempControl : GameEventTrigger
         {
             Singleton.Global.GameManager.Intensity += 15;
         }
+
+        if (AlertImage != null)
+        {
+            AlertImage.color = Color.white;
+        }
+    }
+
+    public void ToggleTemperatureDirection()
+    {
+        raiseTemp = !raiseTemp;
     }
 
     private IEnumerator EventTimer(float seconds)

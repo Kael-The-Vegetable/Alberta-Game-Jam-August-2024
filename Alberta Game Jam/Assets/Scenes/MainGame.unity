@@ -2545,7 +2545,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981871376}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 468ba8a3dc00f1440a19622cb63384d5, type: 3}
   m_Name: 
@@ -4361,6 +4361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400523405}
   - component: {fileID: 1400523406}
+  - component: {fileID: 1400523407}
   m_Layer: 5
   m_Name: A09
   m_TagString: Untagged
@@ -4396,14 +4397,40 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400523404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 468ba8a3dc00f1440a19622cb63384d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <EventController>k__BackingField: {fileID: 0}
-  <Events>k__BackingField: []
+  <Events>k__BackingField:
+  - {fileID: 1400523407}
   runningEvent: {fileID: 0}
+--- !u!114 &1400523407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400523404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccf67536a2d65d49ae876617cb24b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  section: {fileID: 1400523406}
+  <EventName>k__BackingField: Temprature Control
+  <EventDescription>k__BackingField: 
+  isRunning: 0
+  startMessage: The automatic coolant pump has broke! Use the switch on your right
+    to manually control it!
+  eventTime: 15
+  raiseTemp: 1
+  temperatureDisplay: {fileID: 1441424127}
+  temperature: 50
+  upperTolerance: 75
+  lowerTolerance: 25
+  AlertImage: {fileID: 1031770156}
 --- !u!1 &1403244231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,6 +4477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441424124}
   - component: {fileID: 1441424126}
+  - component: {fileID: 1441424127}
   - component: {fileID: 1441424125}
   m_Layer: 5
   m_Name: Text
@@ -4497,7 +4525,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nuclear Reactor\nTemp:(700\xB0C)"
+  m_text: 'Nuclear Reactor
+
+    Temp:(500 C)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9297a1e46f1dcf4d8879ee85a93237f, type: 2}
   m_sharedMaterial: {fileID: -2014018949771752432, guid: c9297a1e46f1dcf4d8879ee85a93237f, type: 2}
@@ -4574,6 +4604,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441424123}
   m_CullTransparentMesh: 1
+--- !u!114 &1441424127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441424123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a47c0847595be4caabdc1a3bd25988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefix: 'Nuclear Reactor
+
+    Temp:('
+  suffix: ' C)'
+  value: 500
 --- !u!1 &1476422673
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,6 +6759,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2063990248}
         m_TargetAssemblyTypeName: Switcheer, Assembly-CSharp
         m_MethodName: FlipY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1400523407}
+        m_TargetAssemblyTypeName: TempControl, Assembly-CSharp
+        m_MethodName: ToggleTemperatureDirection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
