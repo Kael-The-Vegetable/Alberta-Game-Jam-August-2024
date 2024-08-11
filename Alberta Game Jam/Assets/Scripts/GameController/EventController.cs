@@ -36,7 +36,7 @@ public class EventController : MonoBehaviour
 
         Sections ??= FindObjectsOfType<Section>();
         //TODO: remove later
-        //StartEventCycle();
+        StartEventCycle();
     }
 
     public void StartEventCycle()

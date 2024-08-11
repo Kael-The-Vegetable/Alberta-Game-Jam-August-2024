@@ -91,3 +91,5 @@ Alberta Game Jam/[Aa]ssets/StreamingAssets/**/*.bank.meta
 fmod_editor.log
 # FMOD ------------------------------------
 Alberta Game Jam/fmod_editor.log
+Alberta Game Jam/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+Alberta Game Jam/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
