@@ -22,9 +22,13 @@ public class DialogueManager : MonoBehaviour
 
     private void FindDialogueBox(Scene arg0, LoadSceneMode arg1)
     {
-        if (dialogueLabel == null && !GameObject.Find("DialogueBox").TryGetComponent(out dialogueLabel))
+        if (dialogueLabel == null)
         {
-            Debug.LogWarning("No gameObject called \"DialogueBox\" was found.");
+            var go = GameObject.Find("DialogueBox");
+            if (go != null && !go.TryGetComponent(out dialogueLabel))
+            {
+                Debug.LogWarning("No gameObject called \"DialogueBox\" was found.");
+            }
         }
     }
 
