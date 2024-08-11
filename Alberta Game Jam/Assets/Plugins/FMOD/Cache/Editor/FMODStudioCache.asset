@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638589851687201682
+  lastModified: 638589928455577749
   FileSizes:
   - Name: 
-    Value: 1748
+    Value: 1786
   Exists: 1
 --- !u!114 &-6070128771273884183
 MonoBehaviour:
@@ -134,7 +134,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638589851687085943
+  lastModified: 638589928455537595
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: 2553716788198453260}
   - {fileID: 499523169416814013}
   - {fileID: -2888897224342931468}
+  - {fileID: 8210333186794014002}
   EditorParameters:
   - {fileID: -5612304450066630793}
   - {fileID: 5305275204074035085}
@@ -172,7 +173,7 @@ MonoBehaviour:
   - {fileID: -1626965376274752025}
   StringsBanks:
   - {fileID: -6987017123908629358}
-  cacheTime: 638589861577014395
+  cacheTime: 638589928455577749
   cacheVersion: 131618
 --- !u!114 &499523169416814013
 MonoBehaviour:
@@ -194,13 +195,13 @@ MonoBehaviour:
     Data4: 1316469517
   Banks:
   - {fileID: 4454872917385175540}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 60974
 --- !u!114 &670809692480843810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +221,8 @@ MonoBehaviour:
     Data3: 1927585456
     Data4: 1382473497
   Banks:
-  - {fileID: 4454872917385175540}
   - {fileID: 2355517787527908546}
+  - {fileID: 4454872917385175540}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -298,7 +299,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Game.bank
   Name: Desktop/Game
   StudioPath: bank:/Game
-  lastModified: 638589861577014395
+  lastModified: 638589928455384279
   FileSizes: []
   Exists: 1
 --- !u!114 &2527316347998265808
@@ -347,8 +348,8 @@ MonoBehaviour:
     Data3: -60851278
     Data4: -630746295
   Banks:
-  - {fileID: 4454872917385175540}
   - {fileID: 2355517787527908546}
+  - {fileID: 4454872917385175540}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -400,7 +401,7 @@ MonoBehaviour:
   Path: Assets/Sounds/FMOD Banks/Desktop/Menu.bank
   Name: Desktop/Menu
   StudioPath: bank:/Menu
-  lastModified: 638589829015387241
+  lastModified: 638589923339501017
   FileSizes: []
   Exists: 1
 --- !u!114 &5305275204074035085
@@ -475,3 +476,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &8210333186794014002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue
+  Guid:
+    Data1: 1488150099
+    Data2: 1129328602
+    Data3: 120812452
+    Data4: 1000465437
+  Banks:
+  - {fileID: 2355517787527908546}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
