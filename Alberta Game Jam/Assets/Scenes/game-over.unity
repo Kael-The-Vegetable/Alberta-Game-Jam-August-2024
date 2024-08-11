@@ -624,7 +624,7 @@ MonoBehaviour:
   - {fileID: 867587222}
   - {fileID: 1110904094}
   - {fileID: 1361066834}
-  blownUpTime: 10
+  blownUpTime: 6
   firedTime: 4
 --- !u!1 &852837079
 GameObject:
