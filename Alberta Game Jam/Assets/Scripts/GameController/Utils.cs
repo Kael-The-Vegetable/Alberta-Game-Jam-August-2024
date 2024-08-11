@@ -12,7 +12,7 @@ public static class Utils
         { return default; }
     }
 
-    public static bool ValueBetween(this int value, int min, int max)
+    public static bool ValueBetween(this float value, int min, int max)
     {
         return value >= min && value <= max;
     }
