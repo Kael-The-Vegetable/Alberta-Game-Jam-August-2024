@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThreeColours : MonoBehaviour, IGameEvent
 {
@@ -13,23 +14,22 @@ public class ThreeColours : MonoBehaviour, IGameEvent
 
     public Colour colour;
 
+    public Image indicator;
+
     [Min(0)] public float delayTime;
 
 
     private Colour _selectedColour;
-    public Colour selectedColour
+    
+    public void SelectColour(int colourInt)
     {
-        get => _selectedColour;
-        set
+        if ( (int)colour == colourInt)
         {
-            if (value != colour)
-            {
-                // INCREASE INTENSITY
-            }
-            else
-            {
-                _selectedColour = value;
-            }
+            _selectedColour = colour;
+        }
+        else
+        {
+            // INCREASE INTENSITY
         }
     }
     
@@ -49,6 +49,18 @@ public class ThreeColours : MonoBehaviour, IGameEvent
     public void OnEventStart()
     {
         colour = (Colour)Singleton.Global.Random.Next(3);
+        switch (colour)
+        {
+            case Colour.Red:
+                indicator.color = Color.red;
+                break;
+            case Colour.Yellow:
+                indicator.color = Color.yellow;
+                break;
+            case Colour.Blue:
+                indicator.color = Color.blue;
+                break;
+        }
         StartCoroutine(Wait(delayTime));
     }
 
