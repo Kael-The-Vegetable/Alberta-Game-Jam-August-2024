@@ -28,7 +28,7 @@ public class ThreeColours : GameEventTrigger
         }
         else
         {
-            // INCREASE INTENSITY
+            Singleton.Global.GameManager.Intensity += 15;
         }
     }
 
@@ -40,11 +40,11 @@ public class ThreeColours : GameEventTrigger
         indicator.color = Color.gray;
         if (_selectedColour != colour)
         {
-            // INCREASE INTENSITY
+            Singleton.Global.GameManager.Intensity += 15;
         }
         else
         {
-            // DECREASE INTENSITY
+            Singleton.Global.GameManager.Intensity -= 5;
         }
     }
 
