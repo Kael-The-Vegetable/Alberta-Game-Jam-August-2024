@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,11 @@ public abstract class MenuController : MonoBehaviour
 {
     [SerializeField] protected GameObject[] _buttonObjects;
     protected Button[] _buttons;
+    protected int _selectedIndex = 0;
 
     public EventSystem eventSystem;
+    [Space]
+    public float introWaitTime;
 
     internal virtual void Awake()
     {
@@ -18,6 +22,7 @@ public abstract class MenuController : MonoBehaviour
         for (int i = 0; i < _buttonObjects.Length; i++)
         {
             _buttons[i] = _buttonObjects[i].GetComponent<Button>();
+            _buttons[i].onClick.AddListener(PressButton);
         }
 
         if (eventSystem != null && _buttonObjects.Length > 0)
@@ -26,14 +31,51 @@ public abstract class MenuController : MonoBehaviour
         { Debug.LogError("You require to have buttons exist and an eventSystem."); }
     }
 
-    public virtual void Outro(float waitTime, GameObject newActiveObj)
+    internal virtual void OnEnable()
     {
-        StartCoroutine(OutroWait(waitTime, newActiveObj));
+        Move(introWaitTime, Vector2.zero);
+        StartCoroutine(Initialize(introWaitTime));
+        eventSystem.SetSelectedGameObject(_buttonObjects[_selectedIndex]);
     }
-    internal virtual IEnumerator OutroWait(float waitTime, GameObject newActiveObj)
+
+    internal virtual void OnDisable()
     {
-        yield return new WaitForSeconds(waitTime);
+        for (int i = 0; i < _buttonObjects.Length; i++)
+        {
+            if (eventSystem.currentSelectedGameObject == _buttonObjects[i])
+            { _selectedIndex = i; }
+        }
+    }
+
+    protected IEnumerator Initialize(float waitTime)
+    {
+        DisableButtons(true);
+        yield return new WaitForSecondsRealtime(waitTime);
+        DisableButtons(false);
+    }
+
+    private void DisableButtons(bool disable)
+    {
+        for (int i = 0; i < _buttons.Length; i++)
+        { _buttons[i].enabled = !disable; }
+    }
+
+    public virtual void Move(float waitTime, Vector2 newPos) 
+        => gameObject.transform.DOMove(newPos, waitTime).SetUpdate(true);
+    
+    public virtual void Outro(float waitTime, GameObject newActiveObj, Vector2 newPos) 
+        => StartCoroutine(OutroWait(waitTime, newActiveObj, newPos));
+    
+    internal virtual IEnumerator OutroWait(float waitTime, GameObject newActiveObj, Vector2 newPos)
+    {
+        Move(waitTime, newPos);
+        yield return new WaitForSecondsRealtime(waitTime);
         gameObject.SetActive(false);
-        newActiveObj.SetActive(true);
+        newActiveObj.SetActive(!newActiveObj.activeInHierarchy);
+    }
+
+    internal virtual void PressButton()
+    {
+        Singleton.Global.FModManager.PlayOneShot(Singleton.Global.FModEvents.uiClick, transform.position);
     }
 }
