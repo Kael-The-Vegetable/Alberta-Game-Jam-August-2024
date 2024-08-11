@@ -18,11 +18,5 @@ public class FModEvents : MonoBehaviour
 
     [field: Header("Misc Events")]
     [field: SerializeField] public EventReference cigarettes { get; private set; }
-
-    //public EventInstance music;
-    //public void Start()
-    //{
-    //    music = Singleton.Global.FModManager.CreateInstance(menuMusic);
-    //    music.start();
-    //}
+    [field: SerializeField] public EventReference explosion { get; private set; }
 }
