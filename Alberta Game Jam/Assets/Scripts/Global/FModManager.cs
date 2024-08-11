@@ -90,8 +90,21 @@ public class FModManager : MonoBehaviour
         }
     }
 
-    private void SceneChanged(Scene old, Scene next) => CleanUpSounds();
-    
+    private void SceneChanged(Scene old, Scene next)
+    {
+        switch (next.buildIndex)
+        {
+            case 0:// intro
+                break;
+            case 1:// main menu
+                break;
+            case 2:// game
+                break;
+            default:// game over
+                break;
+        }
+        CleanUpSounds();
+    }
 
     private void CleanUpSounds()
     {
