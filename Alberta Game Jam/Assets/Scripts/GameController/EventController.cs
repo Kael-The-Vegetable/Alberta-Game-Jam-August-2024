@@ -28,10 +28,9 @@ public class EventController : MonoBehaviour
     }
     void EventCallback(bool success, string message)
     {
-        eventWasTriggered = success;
-
         if (success)
         {
+            Debug.Log("An Event Was triggered");
             Debug.Log(message);
         }
         else
@@ -50,25 +49,16 @@ public class EventController : MonoBehaviour
 
     private IEnumerator EventCycle(float seconds)
     {
-        eventWasTriggered = null;
+        Debug.Log($"Waiting {seconds} seconds to start event");
         yield return new WaitForSeconds(seconds);
         var availableSections = Sections.Where(s => s.enabled && !s.IsEventRunning).ToArray();
         Section section = null;
         if (availableSections.Length > 0)
         {
-            availableSections.SelectRandomElement();
+            section = availableSections.SelectRandomElement();
             section.ChooseRandomEvent(callback);
         }
 
-        if ((bool)eventWasTriggered)
-        {
-            StartEventCycle();
-            Debug.Log("An Event Was triggered");
-        }
-        else
-        {
-            Debug.Log("No event was triggered");
-        }
-
+        StartEventCycle();
     }
 }

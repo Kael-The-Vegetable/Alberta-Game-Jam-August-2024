@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThreeColours : MonoBehaviour, IGameEvent
+public class ThreeColours : GameEventTrigger
 {
     public enum Colour
     {
         Red = 0, Yellow = 1, Blue = 2
     }
-
-    [field: SerializeField] public GameEventTrigger Trigger { get; set; }
 
     public Colour colour;
 
@@ -20,10 +18,10 @@ public class ThreeColours : MonoBehaviour, IGameEvent
 
 
     private Colour _selectedColour;
-    
+
     public void SelectColour(int colourInt)
     {
-        if ( (int)colour == colourInt)
+        if ((int)colour == colourInt)
         {
             _selectedColour = colour;
         }
@@ -32,10 +30,12 @@ public class ThreeColours : MonoBehaviour, IGameEvent
             // INCREASE INTENSITY
         }
     }
-    
 
-    public void OnEventEnd()
+
+    public override void EndEvent()
     {
+        base.EndEvent();
+
         indicator.color = Color.gray;
         if (_selectedColour != colour)
         {
@@ -47,8 +47,16 @@ public class ThreeColours : MonoBehaviour, IGameEvent
         }
     }
 
-    public void OnEventStart()
+    public override void UpdateEvent()
     {
+        // do nothing
+        base.UpdateEvent();
+    }
+
+    public override void StartEvent()
+    {
+        base.StartEvent();
+
         colour = (Colour)Singleton.Global.Random.Next(3);
         switch (colour)
         {
@@ -68,8 +76,6 @@ public class ThreeColours : MonoBehaviour, IGameEvent
     private IEnumerator Wait(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        Trigger.EndEvent();
+        EndEvent();
     }
-
-    public void OnEventUpdate() { }
 }

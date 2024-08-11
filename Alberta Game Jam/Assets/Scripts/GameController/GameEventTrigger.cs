@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventTrigger : MonoBehaviour
+public abstract class GameEventTrigger : MonoBehaviour
 {
     public Section section;
 
@@ -15,26 +15,16 @@ public class GameEventTrigger : MonoBehaviour
     [HideInInspector]
     public bool isRunning;
 
-    [Space]
-    public UnityEvent onEventStart;
-    public UnityEvent onEventUpdate;
-    public UnityEvent onEventEnd;
-
-    public void StartEvent()
+    public virtual void StartEvent()
     {
+        isRunning = true;
         section.runningEvent = this;
-        onEventStart?.Invoke();
     }
-
-    public void UpdateEvent()
+    public virtual void UpdateEvent() { }
+    public virtual void EndEvent() 
     {
-        onEventUpdate?.Invoke();
-    }
-
-    public void EndEvent()
-    {
+        isRunning = false;
         section.runningEvent = null;
-        onEventEnd?.Invoke();
     }
 
     private void OnValidate()
