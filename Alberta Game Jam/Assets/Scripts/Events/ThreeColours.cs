@@ -36,7 +36,8 @@ public class ThreeColours : MonoBehaviour, IGameEvent
 
     public void OnEventEnd()
     {
-        if (_selectedColour == null || _selectedColour != colour)
+        indicator.color = Color.gray;
+        if (_selectedColour != colour)
         {
             // INCREASE INTENSITY
         }

@@ -31,9 +31,10 @@ public class Section : MonoBehaviour
                 randomEvent.StartEvent();
                 success = true;
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                msg = $"Event {randomEvent.EventName} failed to start.";
+                Debug.LogException(ex);
+                msg = $"Event randomEvent.EventName failed to start.";
             }
 
             callback(success, msg);
