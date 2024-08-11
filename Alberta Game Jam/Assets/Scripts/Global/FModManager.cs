@@ -63,6 +63,7 @@ public class FModManager : MonoBehaviour
         eventEmitters = new List<StudioEventEmitter>();
 
         SceneManager.activeSceneChanged += SceneChanged;
+        InitializeMusic(Singleton.Global.FModEvents.gameMusic);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 pos)
@@ -99,7 +100,7 @@ public class FModManager : MonoBehaviour
             case 1:// main menu
                 break;
             case 2:// game
-                InitializeMusic(Singleton.Global.FModEvents.gameMusic);
+                
                 break;
             default:// game over
                 break;
