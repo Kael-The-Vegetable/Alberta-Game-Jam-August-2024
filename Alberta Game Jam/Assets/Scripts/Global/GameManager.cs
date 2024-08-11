@@ -5,6 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int intensity = 0;
+    private ScoreDisplay intensityDisplay;
+    private void Awake()
+    {
+        
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        if(objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        intensityDisplay = GameObject.Find("IntensityCounter").GetComponent<ScoreDisplay>();
+    }
+
+    void Update()
+    {
+        intensityDisplay.IntensityCount(intensity++);
+    }
+
+
     /// <summary>
     /// Use this method to change the scene as per the build order.
     /// </summary>
@@ -32,4 +56,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         variable(finalValue);
     }
+
+
 }
